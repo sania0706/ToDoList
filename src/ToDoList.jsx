@@ -5,15 +5,36 @@ function ToDoList() {
     "have breakfast",
     "take shower",
   ]);
-  const [newTask, setNewTask] = useState([]);
+  const [newTask, setNewTask] = useState("");
 
   function handleInputChange(event) {
     setNewTask(event.target.value);
   }
-  function addTask() {}
-  function removeTask(index) {}
-  function moveTaskUp(index) {}
-  function moveTaskDown(index) {}
+  function addTask() {
+    if(newTask.trim() !== ""){ 
+    setTask(t => [...t , newTask]);
+    setNewTask("");
+    }
+  }
+  function removeTask(index) {
+    const updatedtask = tasks.filter((_,i) => i !== index);
+       setTask(updatedtask);
+
+  }
+  function moveTaskUp(index) {
+    if(index > 0){
+        const updatedtask = [...tasks];
+        [updatedtask[index], updatedtask[index-1]] = [updatedtask[index-1], updatedtask[index]];
+        setTask(updatedtask);
+    }
+  }
+  function moveTaskDown(index) {
+    if(index < tasks.length - 1){
+        const updatedtask = [...tasks];
+        [updatedtask[index], updatedtask[index+1]] = [updatedtask[index+1], updatedtask[index]];
+        setTask(updatedtask);
+    }
+  }
   return (
     <div className="todolist">
       <h1>TO-DO-LIST</h1>

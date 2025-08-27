@@ -14,7 +14,7 @@ h1{
 
 }
 button{
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-weight: bold;
     padding: 10px , 20px;
     color: white;
@@ -71,6 +71,6 @@ li{
 .delete-button,.move-button{
     padding: 8px 12px;
     font-size: 1.4rem;
-    margin: 5px;
+    margin-left: 10px;
 
 }
